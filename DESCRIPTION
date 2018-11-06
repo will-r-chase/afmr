@@ -10,3 +10,16 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat,
+    spelling
+Language: en-US
+Imports: 
+    dplyr,
+    readr,
+    stringr,
+    tibble,
+    tidyr,
+    purrr,
+    rayshader,
+    EBImage

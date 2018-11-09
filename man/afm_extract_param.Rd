@@ -25,12 +25,3 @@ will simply return the parameter value that you specified. This allows for
 addition of parameters that are not included in the nanoscope output, but
 might be important for a user such as "treatment" "cell#" "material" etc.
 }
-\examples{
-#return the scan rate as a numeric
-afm_extract_param(afm_header, "Scan Rate")
-
-#trigger warning that parameter was not found in header, will return
-"treatment_1" as supplied
-afm_extract_param(afm_header, "treatment_1")
-
-}

@@ -14,22 +14,16 @@
 #' @return If the parameter was found in the header, it will be returned either
 #'   as numeric or character. If the parameter was not found in the header, it
 #'   will be returned as supplied and a warning will be triggered
-#' @export
-#'
-#' @examples
-#' afm_extract_param(afm_header, "Scan Rate")
-#'
-#' afm_extract_param(afm_header, "treatment_1")
 #'
 afm_extract_param <- function(header, parameter){
   parameter_regex <- paste0("\\\\", parameter, ":")
-  parameter_text <- header[str_detect(header, parameter_regex)][1]
+  parameter_text <- header[stringr::str_detect(header, parameter_regex)][1]
   if (is.na(parameter_text)) {
     warning(paste(parameter, "was not found in the header, returning", parameter, "directly"))
     return(parameter)
   } else {
     tryCatch({readr::parse_number(parameter_text)},
-             warning = function(w){str_extract(parameter_text, pattern = '(?<=: )(.*)(?=")')})
+             warning = function(w){stringr::str_extract(parameter_text, pattern = '(?<=: )(.*)(?=")')})
   }
 }
 

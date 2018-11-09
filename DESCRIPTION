@@ -1,12 +1,12 @@
 Package: afmr
-Title: What the Package Does (One Line, Title Case)
+Title: Visualization and Analysis of AFM Images
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "William",
            family = "Chase",
            role = c("aut", "cre"),
            email = "wchase14@gmail.com")
-Description: What the package does (one paragraph).
+Description: afmr reads AFM scan data from Bruker AFMs and provides several useful functions for common image visualizations and analyses.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -22,4 +22,7 @@ Imports:
     tidyr,
     purrr,
     rayshader,
-    EBImage
+    EBImage,
+	assertthat, 
+	magrittr
+RoxygenNote: 6.1.0

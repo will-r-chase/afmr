@@ -10,6 +10,12 @@
 
 afm_matrix <- function(data, samps_line, afm_lines, channel = NULL){
   assert_that(!is.null(channel))
+  if(tibble::is.tibble(data) == FALSE & is.data.frame(data) == FALSE) {
+    stop("data must be a tibble or dataframe")
+  }
+  if(nrow(data) < samps_line*afm_lines) {
+    stop("there are fewer data points than (samps_line*afm_lines), check that you have the right samples per line and afm lines and that you don't have missing data")
+  }
 
   data %>%
     dplyr::pull(channel) %>%

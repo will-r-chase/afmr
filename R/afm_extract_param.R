@@ -15,6 +15,8 @@
 #'   as numeric or character. If the parameter was not found in the header, it
 #'   will be returned as supplied and a warning will be triggered
 #'
+#' @export
+#'
 afm_extract_param <- function(header, parameter){
   parameter_regex <- paste0("\\\\", parameter, ":")
   parameter_text <- header[stringr::str_detect(header, parameter_regex)][1]

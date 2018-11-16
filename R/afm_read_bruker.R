@@ -71,6 +71,7 @@ afm_read_bruker <- function(file = NULL, maps = "all", opt_params = list(), scan
               check that it is present in
               the header and that you correctly
               specified the name of the parameter")
+
   scan_points <- afm_extract_scan_points(afm_data)
 
   if(maps == "all"){
@@ -86,7 +87,7 @@ afm_read_bruker <- function(file = NULL, maps = "all", opt_params = list(), scan
     names(afm_maps) <- map_names
   }
 
-  optional_params <- purrr::map(opt_params, ~extract_parameter(afm_header, .x))
+  optional_params <- purrr::map(opt_params, ~afm_extract_param(afm_header, .x))
 
   afm_scan(scan_points, scanSize, sampsPerLine, afmLines, maps = afm_maps, optional_params)
 }
